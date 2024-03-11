@@ -1,0 +1,30 @@
+<h1>Mow It Now By Farouk Bouzidi</h1>
+
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <div fxLayout='row'>
+
+
+    <div fxFlex="25%">
+      <label for="file-upload" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Upload File
+      </label>
+      <input id="file-upload" type="file" (change)="onFileSelect($event)" />
+      <div *ngIf="fileName !== ''">
+        Uploaded file : {{fileName}}
+      </div>
+    </div>
+    <div fxFlex="25%">
+      <button mat-raised-button color="primary" type="submit">Upload</button>
+    </div>
+
+  </div>
+
+</form>
+
+<div fxLayout='row'>
+  <div fxFlex="50%"> <app-grid [lawn]="initial" [name]="'Initial status'"></app-grid> </div>
+  <div fxFlex="50%"> <app-grid [lawn]="last" [name]="'Final status'"></app-grid> </div>
+</div>
+<h3>Please note that mower order isn't always the same due to the use of Sets in the Java Code to prevent a redundant mower in file</h3>
+
+

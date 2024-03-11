@@ -1,0 +1,26 @@
+
+<div *ngIf="lawn !== undefined">
+  <h1>{{name}}</h1>
+  <table >
+    <tr *ngFor="let row of lawn.cells; index as x">
+      <td *ngFor="let cell of row; index as y" [style.background-color]="cell.mowIsHere ? colors[cell.mower.id % colors.length] : '#00ff7f'" >
+
+        <div *ngIf="cell.mowIsHere " >
+          <img src="assets/images/mower.png" width="50px" [class]="cell.mower.orientation">
+        </div>
+
+      </td>
+    </tr>
+
+  </table>
+
+  <ul>
+    <li *ngFor="let mower of lawn.mowerSet">
+      <span [ngStyle]="{'color': colors[mower.id % colors.length]}">ID : {{mower.id}} position : ({{mower.position.x}}, {{mower.position.y}}) orientation: {{mower.orientation}} </span>
+    </li>
+  </ul>
+
+
+
+
+</div>
